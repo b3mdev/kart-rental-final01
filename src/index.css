@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    transition: color-scheme 200ms ease;
+  }
+  
+  html.dark {
+    color-scheme: dark;
+  }
+  
+  html:not(.dark) {
+    color-scheme: light;
+  }
+}
+
+@layer components {
+  .theme-transition {
+    @apply transition-colors duration-200 ease-in-out;
+  }
+}
+
+/* Custom scrollbar for dark mode */
+@layer utilities {
+  .dark {
+    scrollbar-width: thin;
+    scrollbar-color: #4b5563 #1f2937;
+  }
+  
+  .dark::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .dark::-webkit-scrollbar-track {
+    background: #1f2937;
+  }
+  
+  .dark::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 4px;
+  }
+  
+  .dark::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+  }
+}
